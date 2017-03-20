@@ -1,10 +1,10 @@
+# frozen_string_literal: true
 require 'jwt'
 require 'adobe/campaign'
 
 namespace :adobe do
   desc 'Generate a long-life JWT for exchanging with the adobelogic server'
   task :generate_jwt do
-
     org_id = Adobe::Campaign.configuration.org_id
     tech_acct = Adobe::Campaign.configuration.tech_acct
     api_key = Adobe::Campaign.configuration.api_key

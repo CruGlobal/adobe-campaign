@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rest-client'
 
 require 'adobe/campaign/version'
@@ -12,19 +13,19 @@ module Adobe
       end
 
       def self.post(body)
-        post_request("profileAndServices/profile", body)
+        post_request('profileAndServices/profile', body)
       end
 
       def self.get_request(url)
-        full_url = URI::join('https://mc.adobe.io/cru/campaign/', url)
+        full_url = URI.join('https://mc.adobe.io/cru/campaign/', url)
         resp = RestClient.get(full_url, headers: auth_headers)
-        JSON.parse(access_token_resp.body)
+        JSON.parse(resp.body)
       end
 
       def self.post_request(url, body)
-        full_url = URI::join('https://mc.adobe.io/cru/campaign/', url)
+        full_url = URI.join('https://mc.adobe.io/cru/campaign/', url)
         resp = RestClient.post(full_url, body, headers: auth_headers)
-        JSON.parse(access_token_resp.body)
+        JSON.parse(resp.body)
       end
 
       def self.auth_headers

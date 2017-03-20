@@ -1,0 +1,33 @@
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - vendor/**/*
+    - bin/**/*
+
+  UseCache: true
+  CacheRootDirectory: 'cache/'
+  TargetRubyVersion: 2.3
+
+Rails:
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+MethodLength:
+  Severity: warning
+  Max: 15
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 9
+
+Metrics/ClassLength:
+  Max: 200

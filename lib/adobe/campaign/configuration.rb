@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Adobe
   module Campaign
     class << self
@@ -15,10 +16,10 @@ module Adobe
 
       # Required. The subject, your API client account ID in the format: id@techacct.adobe.com.
       attr_accessor :tech_acct
-      
+
       # Required. Api key retrieved from https://www.adobe.io/console/integrations
       attr_accessor :api_key
-      
+
       attr_accessor :ims_host
 
       def initialize
