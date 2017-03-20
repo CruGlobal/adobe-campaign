@@ -1,0 +1,11 @@
+/Users/soberstadt/.rbenv/versions/2.2.2/bin/ruby -r ./siteconf20170317-32172-1a3hmji.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20170317-32172-yutl2c
