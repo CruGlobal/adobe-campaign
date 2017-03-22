@@ -19,6 +19,9 @@ module Adobe
 
       # Required. Api key retrieved from https://www.adobe.io/console/integrations
       attr_accessor :api_key
+      attr_accessor :api_secret
+
+      attr_accessor :signed_jwt
 
       attr_accessor :ims_host
 
@@ -26,6 +29,8 @@ module Adobe
         @org_id = ''
         @tech_acct = ''
         @api_key = ''
+        @api_secret = ''
+        @signed_jwt = ''
         @ims_host = 'ims-na1.adobelogin.com'
       end
     end

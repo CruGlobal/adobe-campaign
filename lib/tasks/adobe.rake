@@ -9,11 +9,14 @@ namespace :adobe do
     unless ENV['key']
       puts 'You must include a reference to the private key'
       puts 'example: rake adobe:generate_jwt key=~/certs/adobe/private.key'
-      next
+      exit 1
     end
 
     key_path = File.expand_path(ENV['key'])
-    next puts 'private key does not exist!' unless File.exist? key_path
+    unless File.exist? key_path
+      puts 'private key does not exist!'
+      exit 1
+    end
 
     org_id = Adobe::Campaign.configuration.org_id
     tech_acct = Adobe::Campaign.configuration.tech_acct
@@ -21,8 +24,8 @@ namespace :adobe do
     ims_host = Adobe::Campaign.configuration.ims_host
     payload = {
       'exp' => 1.year.from_now.to_time.to_i,
-      'iss' => org_id,
-      'sub' => tech_acct,
+      'iss' => "#{org_id}@AdobeOrg",
+      'sub' => "#{tech_acct}@techacct.adobe.com",
       'aud' => "https://#{ims_host}/c/#{api_key}",
       "https://#{ims_host}/s/ent_campaign_sdk" => true
     }
