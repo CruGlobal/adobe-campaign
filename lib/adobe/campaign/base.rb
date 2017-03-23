@@ -43,6 +43,11 @@ module Adobe
       end
 
       def self.access_token
+        Adobe::Campaign::Base.load_access_token
+      end
+
+      def self.load_access_token
+        return @access_token if @access_token && @access_token_expires > Time.zone.now
         as_url = "https://#{Adobe::Campaign.configuration.ims_host}/ims/exchange/jwt"
         as_payload = {
           client_id: Adobe::Campaign.configuration.api_key,
@@ -50,7 +55,9 @@ module Adobe
           jwt_token: Adobe::Campaign.configuration.signed_jwt
         }
         access_token_resp = RestClient.post(as_url, as_payload, {})
-        JSON.parse(access_token_resp.body)['access_token']
+        json = JSON.parse(access_token_resp.body)
+        @access_token_expires = 1439.minutes.from_now
+        @access_token = json.dig('access_token')
       end
 
       def self.url_join(*args)
