@@ -1,5 +1,7 @@
 # Adobe::Campaign
 
+Based off the documentation here: https://docs.campaign.adobe.com/doc/standard/en/api/ACS_API.html
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -28,5 +30,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/CruGlobal/adobe-campaign.
+Bug reports and pull requests are welcome on GitHub at https://github.com/soberstadt/adobe-campaign.
 
