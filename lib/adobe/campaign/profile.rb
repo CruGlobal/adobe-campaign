@@ -6,6 +6,10 @@ module Adobe
         'profileAndServices/profile'
       end
 
+      def self.by_email(search_text)
+        get_request("#{endpoint}/byEmail?email=#{search_text}")
+      end
+
       # Example Create Payload
       # {
       #   "birthDate": '',

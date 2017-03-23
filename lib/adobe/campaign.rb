@@ -6,6 +6,7 @@ require 'adobe/campaign/configuration'
 require 'adobe/campaign/railtie' if defined? ::Rails::Railtie
 require 'adobe/campaign/base'
 require 'adobe/campaign/profile'
+require 'adobe/campaign/service'
 
 module Adobe
   module Campaign

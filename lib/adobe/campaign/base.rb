@@ -6,23 +6,32 @@ module Adobe
         raise 'You can not call requests directly on Adobe::Campaign::Base'
       end
 
+      def self.all
+        get_request(endpoint)
+      end
+
       def self.find(search_text)
         get_request("#{endpoint}/byText?text=#{search_text}")
       end
 
       def self.post(body)
-        full_url = URI.join('https://mc.adobe.io/cru/campaign/', endpoint)
-        resp = RestClient.post(full_url.to_s, body, headers: auth_headers)
-        JSON.parse(resp.body)
+        post_request(endpoint, body)
       end
 
       def self.get_request(url)
-        full_url = URI.join('https://mc.adobe.io/cru/campaign/', url)
+        full_url = url_join('https://mc.adobe.io/cru/campaign/', url)
         resp = RestClient::Request.execute(
           method: :get,
-          url: full_url.to_s,
+          url: full_url,
           headers: Adobe::Campaign::Base.auth_headers
         )
+        JSON.parse(resp.body)
+      end
+
+      def self.post_request(url, body)
+        full_url = url_join('https://mc.adobe.io/cru/campaign/', url)
+        json = body.is_a?(String) ? body : body.to_json
+        resp = RestClient.post(full_url, json, auth_headers.merge('Content-Type' => 'application/json'))
         JSON.parse(resp.body)
       end
 
@@ -42,6 +51,11 @@ module Adobe
         }
         access_token_resp = RestClient.post(as_url, as_payload, {})
         JSON.parse(access_token_resp.body)['access_token']
+      end
+
+      def self.url_join(*args)
+        base = args.map { |arg| arg.gsub(%r{^/*(.*?)/*$}, '\1') }.join('/')
+        args.last.ends_with?('/') ? "#{base}/" : base
       end
     end
   end
