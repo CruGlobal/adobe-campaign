@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['soberstadt@gmail.com']
 
   spec.summary       = 'A ruby wrapper for connecting your Rails app with Adobe Campaign.'
-  spec.homepage      = 'https://github.com/CruGlobal/adobe-campaign'
+  spec.homepage      = 'https://github.com/soberstadt/adobe-campaign'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = 'exe'
