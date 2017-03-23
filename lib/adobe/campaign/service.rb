@@ -12,10 +12,7 @@ module Adobe
             'PKey' => person_pkey
           }
         }
-        resp = RestClient.post(service_subs_url,
-                               payload.to_json,
-                               auth_headers.merge('Content-Type' => 'application/json'))
-        JSON.parse(resp.body)
+        post_request(service_subs_url, payload)
       end
     end
   end
