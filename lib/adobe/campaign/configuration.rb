@@ -13,6 +13,7 @@ module Adobe
     class Configuration
       # Required. The issuer, your organization ID in the format org_ident@AdobeOrg.
       attr_accessor :org_id
+      attr_accessor :org_name
 
       # Required. The subject, your API client account ID in the format: id@techacct.adobe.com.
       attr_accessor :tech_acct
@@ -27,6 +28,7 @@ module Adobe
 
       def initialize
         @org_id = ''
+        @org_name = ''
         @tech_acct = ''
         @api_key = ''
         @api_secret = ''

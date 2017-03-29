@@ -64,7 +64,11 @@ module Adobe
         protected
 
         def url_prefix(url)
-          url.starts_with?('http') ? url : url_join('https://mc.adobe.io/cru/campaign/', url)
+          url.starts_with?('http') ? url : url_join(base_url, url)
+        end
+
+        def base_url
+          "https://mc.adobe.io/#{Adobe::Campaign.configuration.org_name}/campaign/"
         end
 
         def url_join(*args)
