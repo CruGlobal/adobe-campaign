@@ -3,7 +3,7 @@ module Adobe
   module Campaign
     class Profile < Adobe::Campaign::Base
       def self.endpoint
-        'profileAndServices/profile'
+        'profileAndServicesExt/profile'
       end
 
       def self.by_email(search_text)

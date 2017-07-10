@@ -3,7 +3,7 @@ module Adobe
   module Campaign
     class Service < Adobe::Campaign::Base
       def self.endpoint
-        'profileAndServices/service'
+        'profileAndServicesExt/service'
       end
 
       def self.post_subscription(service_subs_url, person_pkey)
