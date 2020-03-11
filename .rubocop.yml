@@ -3,12 +3,13 @@ AllCops:
     - Rakefile
     - config.ru
     - lib/tasks/**/*.rake
+    - lib/**/*.rb
   Exclude:
     - vendor/**/*
     - bin/**/*
 
   UseCache: true
-  CacheRootDirectory: 'cache/'
+  CacheRootDirectory: "cache/"
   TargetRubyVersion: 2.3
 
 Rails:

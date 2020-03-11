@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Adobe
   module Campaign
     class Railtie < Rails::Railtie

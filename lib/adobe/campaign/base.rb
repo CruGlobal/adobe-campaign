@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Adobe
   module Campaign
     class Base
@@ -49,6 +50,7 @@ module Adobe
 
         def load_access_token
           return @access_token if @access_token && @access_token_expires > Time.zone.now
+
           as_url = "https://#{Adobe::Campaign.configuration.ims_host}/ims/exchange/jwt"
           as_payload = {
             client_id: Adobe::Campaign.configuration.api_key,

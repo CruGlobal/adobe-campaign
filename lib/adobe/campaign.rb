@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rest-client'
 
 require 'adobe/campaign/version'
