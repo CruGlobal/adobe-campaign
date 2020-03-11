@@ -1,8 +1,9 @@
 # frozen_string_literal: true
-# rubocop:disable Metrics/BlockLength
+
 require 'jwt'
 require 'adobe/campaign'
 
+# rubocop:disable Metrics/BlockLength
 namespace :adobe do
   desc 'Generate a long-life JWT for exchanging with the adobelogic server'
   task :generate_jwt do
@@ -36,3 +37,4 @@ namespace :adobe do
     puts "It will expire: #{10.years.from_now}"
   end
 end
+# rubocop:enable Metrics/BlockLength
