@@ -10,4 +10,6 @@
 /cache/
 /vendor/
 *.gem
+.idea/
+.tool-versions
 
