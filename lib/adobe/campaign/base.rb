@@ -33,7 +33,7 @@ module Adobe
         def post_request(url, body)
           full_url = url_prefix(url)
           json = body.is_a?(String) ? body : body.to_json
-          resp = RestClient.post(full_url, json, auth_headers.merge('Content-Type' => 'application/json'))
+          resp = RestClient.post(full_url, json, auth_headers.merge('Content-Type' => 'application/json;charset=UTF-8'))
           JSON.parse(resp.body)
         end
 
