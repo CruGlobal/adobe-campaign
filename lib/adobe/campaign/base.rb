@@ -13,6 +13,7 @@ module Adobe
         end
 
         def find(search_text)
+          search_text = ERB::Util.url_encode(search_text)
           get_request("#{endpoint}/byText?text=#{search_text}")
         end
 
