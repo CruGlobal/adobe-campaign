@@ -8,6 +8,7 @@ module Adobe
       end
 
       def self.by_email(search_text)
+        search_text = ERB::Util.url_encode(search_text)
         get_request("#{endpoint}/byEmail?email=#{search_text}")
       end
 
